@@ -3,6 +3,9 @@ Entwickler
 Plattformen
 Benutzer
 Bewertungen
-Spielstaende
+Spielstände
 Achievements
-Verkaeufe
+Verkäufer
+Publisher
+Launcher
+Genre
