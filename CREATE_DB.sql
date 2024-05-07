@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Videospiele
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Videospiele
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `Videospiele` DEFAULT CHARACTER SET utf8 ;
+USE `Videospiele` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Spiele`
+-- Table `Videospiele`.`Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Spiele` (
   `Spiele_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   `Erscheinungsdatum` DATE NOT NULL,
@@ -32,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Entwickler`
+-- Table `Videospiele`.`Entwickler`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Entwickler` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Entwickler` (
   `Entwickler_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   `Bekannte Spiele` VARCHAR(125) NOT NULL,
@@ -47,9 +47,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Publisher`
+-- Table `Videospiele`.`Publisher`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Publisher` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Publisher` (
   `Publisher_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   `Bekannte Spiele` VARCHAR(125) NOT NULL,
@@ -61,9 +61,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Benutzer`
+-- Table `Videospiele`.`Benutzer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Benutzer` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Benutzer` (
   `Benutzer_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   `Erstellungsdatum` DATE NOT NULL,
@@ -81,9 +81,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Bewertung`
+-- Table `Videospiele`.`Bewertung`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Bewertung` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Bewertung` (
   `Bewertung_ID` INT NOT NULL AUTO_INCREMENT,
   `Benutzer_ID` INT NOT NULL,
   `Bewertung` LONGTEXT NOT NULL,
@@ -94,16 +94,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Bewertung` (
   INDEX `fk_Bewertung_Benutzer1_idx` (`Benutzer_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Bewertung_Benutzer1`
     FOREIGN KEY (`Benutzer_ID`)
-    REFERENCES `mydb`.`Benutzer` (`Benutzer_ID`)
+    REFERENCES `Videospiele`.`Benutzer` (`Benutzer_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Spielstände`
+-- Table `Videospiele`.`Spielstände`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Spielstände` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Spielstände` (
   `Spielstände_ID` INT NOT NULL AUTO_INCREMENT,
   `Benutzer_ID` INT NOT NULL,
   `Name` VARCHAR(125) NOT NULL,
@@ -113,16 +113,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Spielstände` (
   INDEX `fk_Spielstände_Benutzer1_idx` (`Benutzer_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Spielstände_Benutzer1`
     FOREIGN KEY (`Benutzer_ID`)
-    REFERENCES `mydb`.`Benutzer` (`Benutzer_ID`)
+    REFERENCES `Videospiele`.`Benutzer` (`Benutzer_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Achievements`
+-- Table `Videospiele`.`Achievements`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Achievements` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Achievements` (
   `Achievements` INT NOT NULL AUTO_INCREMENT,
   `Spiele_ID` INT NOT NULL,
   `Name` VARCHAR(125) NOT NULL,
@@ -134,16 +134,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Achievements` (
   INDEX `fk_Achievements_Spiele1_idx` (`Spiele_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Achievements_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tags`
+-- Table `Videospiele`.`Tags`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tags` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Tags` (
   `Tags_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   `Beschreibung` VARCHAR(125) NOT NULL,
@@ -155,9 +155,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Genre`
+-- Table `Videospiele`.`Genre`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Genre` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Genre` (
   `Genre` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   `Beschreibung` VARCHAR(125) NOT NULL,
@@ -167,9 +167,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Launcher`
+-- Table `Videospiele`.`Launcher`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Launcher` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Launcher` (
   `Launcher_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   `Entwickler` VARCHAR(125) NOT NULL,
@@ -181,9 +181,9 @@ COMMENT = '							-';
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Verkäufer`
+-- Table `Videospiele`.`Verkäufer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Verkäufer` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Verkäufer` (
   `Verkäufer_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   `Standort` VARCHAR(125) NOT NULL,
@@ -196,9 +196,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Plattformen`
+-- Table `Videospiele`.`Plattformen`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Plattformen` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Plattformen` (
   `Plattformen_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
   PRIMARY KEY (`Plattformen_ID`),
@@ -208,9 +208,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Plattformen_has_Spiele`
+-- Table `Videospiele`.`Plattformen_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Plattformen_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Plattformen_has_Spiele` (
   `Plattformen_ID` INT NOT NULL,
   `Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Plattformen_ID`, `Spiele_ID`),
@@ -218,21 +218,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Plattformen_has_Spiele` (
   INDEX `fk_Plattformen_has_Spiele_Plattformen_idx` (`Plattformen_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Plattformen_has_Spiele_Plattformen`
     FOREIGN KEY (`Plattformen_ID`)
-    REFERENCES `mydb`.`Plattformen` (`Plattformen_ID`)
+    REFERENCES `Videospiele`.`Plattformen` (`Plattformen_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Plattformen_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Verkäufer_has_Spiele`
+-- Table `Videospiele`.`Verkäufer_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Verkäufer_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Verkäufer_has_Spiele` (
   `Verkäufer_ID` INT NOT NULL,
   `Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Verkäufer_ID`, `Spiele_ID`),
@@ -240,21 +240,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Verkäufer_has_Spiele` (
   INDEX `fk_Verkäufer_has_Spiele_Verkäufer1_idx` (`Verkäufer_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Verkäufer_has_Spiele_Verkäufer1`
     FOREIGN KEY (`Verkäufer_ID`)
-    REFERENCES `mydb`.`Verkäufer` (`Verkäufer_ID`)
+    REFERENCES `Videospiele`.`Verkäufer` (`Verkäufer_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Verkäufer_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Launcher_has_Spiele`
+-- Table `Videospiele`.`Launcher_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Launcher_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Launcher_has_Spiele` (
   `Launcher_Launcher_ID` INT NOT NULL,
   `Spiele_Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Launcher_Launcher_ID`, `Spiele_Spiele_ID`),
@@ -262,21 +262,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Launcher_has_Spiele` (
   INDEX `fk_Launcher_has_Spiele_Launcher1_idx` (`Launcher_Launcher_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Launcher_has_Spiele_Launcher1`
     FOREIGN KEY (`Launcher_Launcher_ID`)
-    REFERENCES `mydb`.`Launcher` (`Launcher_ID`)
+    REFERENCES `Videospiele`.`Launcher` (`Launcher_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Launcher_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Genre_has_Spiele`
+-- Table `Videospiele`.`Genre_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Genre_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Genre_has_Spiele` (
   `Genre` INT NOT NULL,
   `Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Genre`, `Spiele_ID`),
@@ -284,21 +284,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Genre_has_Spiele` (
   INDEX `fk_Genre_has_Spiele_Genre1_idx` (`Genre` ASC) VISIBLE,
   CONSTRAINT `fk_Genre_has_Spiele_Genre1`
     FOREIGN KEY (`Genre`)
-    REFERENCES `mydb`.`Genre` (`Genre`)
+    REFERENCES `Videospiele`.`Genre` (`Genre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Genre_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tags_has_Spiele`
+-- Table `Videospiele`.`Tags_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tags_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Tags_has_Spiele` (
   `Tags_ID` INT NOT NULL,
   `Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Tags_ID`, `Spiele_ID`),
@@ -306,21 +306,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Tags_has_Spiele` (
   INDEX `fk_Tags_has_Spiele_Tags1_idx` (`Tags_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Tags_has_Spiele_Tags1`
     FOREIGN KEY (`Tags_ID`)
-    REFERENCES `mydb`.`Tags` (`Tags_ID`)
+    REFERENCES `Videospiele`.`Tags` (`Tags_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Tags_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Achievements_has_Benutzer`
+-- Table `Videospiele`.`Achievements_has_Benutzer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Achievements_has_Benutzer` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Achievements_has_Benutzer` (
   `Achievements` INT NOT NULL,
   `Benutzer_ID` INT NOT NULL,
   PRIMARY KEY (`Achievements`, `Benutzer_ID`),
@@ -328,21 +328,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Achievements_has_Benutzer` (
   INDEX `fk_Achievements_has_Benutzer_Achievements1_idx` (`Achievements` ASC) VISIBLE,
   CONSTRAINT `fk_Achievements_has_Benutzer_Achievements1`
     FOREIGN KEY (`Achievements`)
-    REFERENCES `mydb`.`Achievements` (`Achievements`)
+    REFERENCES `Videospiele`.`Achievements` (`Achievements`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Achievements_has_Benutzer_Benutzer1`
     FOREIGN KEY (`Benutzer_ID`)
-    REFERENCES `mydb`.`Benutzer` (`Benutzer_ID`)
+    REFERENCES `Videospiele`.`Benutzer` (`Benutzer_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Entwickler_has_Spiele`
+-- Table `Videospiele`.`Entwickler_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Entwickler_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Entwickler_has_Spiele` (
   `Entwickler_ID` INT NOT NULL,
   `Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Entwickler_ID`, `Spiele_ID`),
@@ -350,21 +350,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Entwickler_has_Spiele` (
   INDEX `fk_Entwickler_has_Spiele_Entwickler1_idx` (`Entwickler_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Entwickler_has_Spiele_Entwickler1`
     FOREIGN KEY (`Entwickler_ID`)
-    REFERENCES `mydb`.`Entwickler` (`Entwickler_ID`)
+    REFERENCES `Videospiele`.`Entwickler` (`Entwickler_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Entwickler_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Publisher_has_Spiele`
+-- Table `Videospiele`.`Publisher_has_Spiele`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Publisher_has_Spiele` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Publisher_has_Spiele` (
   `Publisher_ID` INT NOT NULL,
   `Spiele_ID` INT NOT NULL,
   PRIMARY KEY (`Publisher_ID`, `Spiele_ID`),
@@ -372,21 +372,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Publisher_has_Spiele` (
   INDEX `fk_Publisher_has_Spiele_Publisher1_idx` (`Publisher_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Publisher_has_Spiele_Publisher1`
     FOREIGN KEY (`Publisher_ID`)
-    REFERENCES `mydb`.`Publisher` (`Publisher_ID`)
+    REFERENCES `Videospiele`.`Publisher` (`Publisher_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Publisher_has_Spiele_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Entwickler_has_Genre`
+-- Table `Videospiele`.`Entwickler_has_Genre`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Entwickler_has_Genre` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Entwickler_has_Genre` (
   `Entwickler_ID` INT NOT NULL,
   `Genre` INT NOT NULL,
   PRIMARY KEY (`Entwickler_ID`, `Genre`),
@@ -394,21 +394,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Entwickler_has_Genre` (
   INDEX `fk_Entwickler_has_Genre_Entwickler1_idx` (`Entwickler_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Entwickler_has_Genre_Entwickler1`
     FOREIGN KEY (`Entwickler_ID`)
-    REFERENCES `mydb`.`Entwickler` (`Entwickler_ID`)
+    REFERENCES `Videospiele`.`Entwickler` (`Entwickler_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Entwickler_has_Genre_Genre1`
     FOREIGN KEY (`Genre`)
-    REFERENCES `mydb`.`Genre` (`Genre`)
+    REFERENCES `Videospiele`.`Genre` (`Genre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Spiele_has_Benutzer`
+-- Table `Videospiele`.`Spiele_has_Benutzer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Spiele_has_Benutzer` (
+CREATE TABLE IF NOT EXISTS `Videospiele`.`Spiele_has_Benutzer` (
   `Spiele_ID` INT NOT NULL,
   `Benutzer_ID` INT NOT NULL,
   PRIMARY KEY (`Spiele_ID`, `Benutzer_ID`),
@@ -416,12 +416,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Spiele_has_Benutzer` (
   INDEX `fk_Spiele_has_Benutzer_Spiele1_idx` (`Spiele_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Spiele_has_Benutzer_Spiele1`
     FOREIGN KEY (`Spiele_ID`)
-    REFERENCES `mydb`.`Spiele` (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Spiele_has_Benutzer_Benutzer1`
     FOREIGN KEY (`Benutzer_ID`)
-    REFERENCES `mydb`.`Benutzer` (`Benutzer_ID`)
+    REFERENCES `Videospiele`.`Benutzer` (`Benutzer_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
