@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Videospiele`.`Entwickler` (
   `Entwickler_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
-  `Bekannte Spiele` VARCHAR(125) NOT NULL,
+  `Bekannte Spiele` INT NOT NULL,
   `Gründungsjahr` DATE NOT NULL,
   `Main-Engine` VARCHAR(45) NULL,
   `Hauptsitz` VARCHAR(125) NOT NULL,
@@ -52,7 +52,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Videospiele`.`Publisher` (
   `Publisher_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
-  `Bekannte Spiele` VARCHAR(125) NOT NULL,
+  `Bekannte Spiele` INT NOT NULL,
   `Gründungsjahr` DATE NOT NULL,
   `Hauptsitz` VARCHAR(125) NOT NULL,
   PRIMARY KEY (`Publisher_ID`),
@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `Videospiele`.`Benutzer` (
   `Gesamtspielzeit` DOUBLE NULL,
   `E-mail` VARCHAR(125) NOT NULL,
   `Gebursdatum` DATE NOT NULL,
-  `Meist_gespieltes_Spiel` VARCHAR(125) NULL,
-  `Kuerzlich_gespieltes_Spiel` VARCHAR(125) NULL,
+  `Meist_gespieltes_Spiel` INT NULL,
+  `Kuerzlich_gespieltes_Spiel` INT NULL,
   PRIMARY KEY (`Benutzer_ID`),
   UNIQUE INDEX `Benutzer_ID_UNIQUE` (`Benutzer_ID` ASC) VISIBLE,
   UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE,
@@ -172,7 +172,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Videospiele`.`Launcher` (
   `Launcher_ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(125) NOT NULL,
-  `Entwickler` VARCHAR(125) NOT NULL,
+  `Entwickler` INT NOT NULL,
   `Erscheinungsdatum` DATE NOT NULL,
   PRIMARY KEY (`Launcher_ID`),
   UNIQUE INDEX `Launcher_ID_UNIQUE` (`Launcher_ID` ASC) VISIBLE)
