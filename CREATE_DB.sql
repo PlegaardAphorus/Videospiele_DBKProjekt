@@ -177,7 +177,6 @@ CREATE TABLE IF NOT EXISTS `Videospiele`.`Launcher` (
   PRIMARY KEY (`Launcher_ID`),
   UNIQUE INDEX `Launcher_ID_UNIQUE` (`Launcher_ID` ASC) VISIBLE)
 ENGINE = InnoDB
-COMMENT = '							-';
 
 
 -- -----------------------------------------------------
