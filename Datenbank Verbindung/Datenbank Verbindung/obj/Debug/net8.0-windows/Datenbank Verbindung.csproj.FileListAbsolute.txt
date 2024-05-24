@@ -1,0 +1,22 @@
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\Datenbank Verbindung.exe
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\Datenbank Verbindung.deps.json
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\Datenbank Verbindung.runtimeconfig.json
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\Datenbank Verbindung.dll
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\Datenbank Verbindung.pdb
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank_Verbindung.frm_login.resources
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank_Verbindung.Properties.Resources.resources
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.csproj.GenerateResource.cache
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.AssemblyInfoInputs.cache
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.AssemblyInfo.cs
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.csproj.CoreCompileInputs.cache
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.sourcelink.json
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.dll
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\refint\Datenbank Verbindung.dll
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.pdb
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.genruntimeconfig.cache
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\ref\Datenbank Verbindung.dll
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\bin\Debug\net8.0-windows\MySqlConnector.dll
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.csproj.AssemblyReference.cache
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenban.3EE0FE93.Up2Date
