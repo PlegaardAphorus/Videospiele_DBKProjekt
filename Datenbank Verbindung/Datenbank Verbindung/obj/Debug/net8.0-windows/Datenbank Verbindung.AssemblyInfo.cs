@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Datenbank Verbindung")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21ef24bdbdfdd23b1a2417b065d76bc6af3d57d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7334357085daffae74c6c037bad966efa0206684")]
 [assembly: System.Reflection.AssemblyProductAttribute("Datenbank Verbindung")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Datenbank Verbindung")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gTJANliJISBy4ZCPk207+eSGUKu9JmF4447Erk2PUpeUc+IlyMkYiHwsZ3GVfBADxGp3Rgfiovteuiq7ErCkqg==",
+  "dgSpecHash": "6IjeQ1Ea2cZumM6p+AVkFEDtwNH6gHrS/saUvvUJXDuqNfucN1WLlkBeqBNcfWrcdfpxbUhBAokIEEakIjOd5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Datenbank Verbindung.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\luke0\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\luke0\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512"
+  ],
   "logs": []
 }
