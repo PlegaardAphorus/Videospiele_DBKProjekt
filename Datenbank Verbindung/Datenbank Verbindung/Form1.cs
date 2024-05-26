@@ -1,5 +1,6 @@
 using MySqlConnector;
 using System.Diagnostics;
+using System.Media;
 using System.Net.Http.Headers;
 
 namespace Datenbank_Verbindung
@@ -9,7 +10,7 @@ namespace Datenbank_Verbindung
         public frm_login()
         {
             InitializeComponent();
-            this.CenterToScreen();
+            CenterToScreen();
         }
 
         private void frm_login_Load(object sender, EventArgs e)
@@ -17,25 +18,33 @@ namespace Datenbank_Verbindung
 
         }
 
-        public async void startConnection()
+        private MySqlConnection sqlVerbindung;
+        
+        private async void btn_login_Click(object sender, EventArgs e)
         {
-            using MySqlConnection sqlVerbindung = new MySqlConnection($"Server=127.0.0.1;User={tbx_username.Text};Password={tbx_password.Text}");
-            Debug.WriteLine(tbx_username.Text);
-            Debug.WriteLine(tbx_password.Text);
+            sqlVerbindung = new MySqlConnection($"Server=127.0.0.1;User={tbx_username.Text};Password={tbx_password.Text}");
             try
             {
                 await sqlVerbindung.OpenAsync();
-                Debug.WriteLine("Verbindung erfolreich hergestellt.");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                tbx_password.Text = string.Empty;
+                tbx_username.Text = string.Empty;
+                if (ex.Message.Contains("Access denied"))
+                {
+                    MessageBox.Show("Zugang verweigert.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Ein unerwarteter Fehler ist aufgetreten, bitte wende dich an einen Systemadministrator", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-        }
+            Form2 tabellenAnsicht = new Form2(sqlVerbindung);
 
-        private void btn_login_Click(object sender, EventArgs e)
-        {
-            startConnection();
+            tabellenAnsicht.Show();
+            tabellenAnsicht.Focus();
+            Hide();
         }
     }
 }

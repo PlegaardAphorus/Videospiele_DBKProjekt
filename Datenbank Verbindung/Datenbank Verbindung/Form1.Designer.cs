@@ -33,7 +33,7 @@
             tbx_password = new TextBox();
             tbx_username = new TextBox();
             lbl_username = new Label();
-            label2 = new Label();
+            lbl_passwort = new Label();
             pbx_logo = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pbx_logo).BeginInit();
             SuspendLayout();
@@ -72,14 +72,14 @@
             lbl_username.TabIndex = 0;
             lbl_username.Text = "Benutzername:";
             // 
-            // label2
+            // lbl_passwort
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(73, 316);
-            label2.Name = "label2";
-            label2.Size = new Size(86, 25);
-            label2.TabIndex = 2;
-            label2.Text = "Passwort:";
+            lbl_passwort.AutoSize = true;
+            lbl_passwort.Location = new Point(73, 316);
+            lbl_passwort.Name = "lbl_passwort";
+            lbl_passwort.Size = new Size(86, 25);
+            lbl_passwort.TabIndex = 2;
+            lbl_passwort.Text = "Passwort:";
             // 
             // pbx_logo
             // 
@@ -98,7 +98,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(292, 444);
             Controls.Add(pbx_logo);
-            Controls.Add(label2);
+            Controls.Add(lbl_passwort);
             Controls.Add(lbl_username);
             Controls.Add(tbx_username);
             Controls.Add(tbx_password);
@@ -120,7 +120,7 @@
         private TextBox tbx_password;
         private TextBox tbx_username;
         private Label lbl_username;
-        private Label label2;
+        private Label lbl_passwort;
         private PictureBox pbx_logo;
     }
 }
