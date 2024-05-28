@@ -42,12 +42,12 @@
             lbx_tables.ItemHeight = 25;
             lbx_tables.Location = new Point(12, 12);
             lbx_tables.Name = "lbx_tables";
-            lbx_tables.Size = new Size(195, 404);
+            lbx_tables.Size = new Size(253, 404);
             lbx_tables.TabIndex = 0;
             // 
             // btn_showTable
             // 
-            btn_showTable.Location = new Point(226, 12);
+            btn_showTable.Location = new Point(271, 12);
             btn_showTable.Name = "btn_showTable";
             btn_showTable.Size = new Size(273, 34);
             btn_showTable.TabIndex = 1;
@@ -56,42 +56,47 @@
             // 
             // btn_dropTable
             // 
-            btn_dropTable.Location = new Point(226, 52);
+            btn_dropTable.Location = new Point(271, 52);
             btn_dropTable.Name = "btn_dropTable";
             btn_dropTable.Size = new Size(273, 34);
             btn_dropTable.TabIndex = 2;
             btn_dropTable.Text = "Ausgewählte Tabelle löschen";
             btn_dropTable.UseVisualStyleBackColor = true;
+            btn_dropTable.Click += btn_dropTable_Click;
             // 
             // btn_sqlCommand
             // 
-            btn_sqlCommand.Location = new Point(226, 92);
+            btn_sqlCommand.Location = new Point(271, 92);
             btn_sqlCommand.Name = "btn_sqlCommand";
             btn_sqlCommand.Size = new Size(273, 34);
             btn_sqlCommand.TabIndex = 3;
             btn_sqlCommand.Text = "SQL Befehl eingeben";
             btn_sqlCommand.UseVisualStyleBackColor = true;
+            btn_sqlCommand.Click += btn_sqlCommand_Click;
             // 
             // btn_logout
             // 
-            btn_logout.Location = new Point(226, 382);
+            btn_logout.Location = new Point(271, 382);
             btn_logout.Name = "btn_logout";
             btn_logout.Size = new Size(273, 34);
             btn_logout.TabIndex = 4;
             btn_logout.Text = "Abmelden";
             btn_logout.UseVisualStyleBackColor = true;
+            btn_logout.Click += btn_logout_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 450);
+            ClientSize = new Size(554, 450);
             Controls.Add(btn_logout);
             Controls.Add(btn_sqlCommand);
             Controls.Add(btn_dropTable);
             Controls.Add(btn_showTable);
             Controls.Add(lbx_tables);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(576, 506);
+            MinimumSize = new Size(576, 506);
             Name = "Form2";
             Text = "Tabellen Ansicht";
             Load += Form2_Load;

@@ -214,27 +214,3 @@ INSERT INTO `verkäufer_has_spiele` (`Verkäufer_ID`, `Spiele_ID`) VALUES
 	(2, 5),
 	(3, 5),
 	(4, 5);
-
-INSERT INTO `verkäufer` (`Verkäufer_ID`, `Name`, `Standort`, `Zahlungsart`, `Versandoptionen`, `Email`) VALUES
-	(1, 'GameStop', 'USA', 'Kreditkarte, PayPal', 'Standard, Express', 'info@gamestop.com'),
-	(2, 'Amazon', 'USA', 'Kreditkarte, Amazon Pay', 'Prime, Standard', 'info@amazon.com'),
-	(3, 'Steam Store', 'USA', 'Kreditkarte, Steam Wallet', 'Digital', 'info@steam.com'),
-	(4, 'Ubisoft Store', 'Frankreich', 'Kreditkarte, Uplay Points', 'Digital', 'info@ubisoft.com'),
-	(5, 'GOG.com', 'Polen', 'Kreditkarte, PayPal, Bitcoin', 'Digital', 'info@gog.com');
-
-INSERT INTO `verkäufer_has_spiele` (`Verkäufer_ID`, `Spiele_ID`) VALUES
-	(3, 1),
-	(4, 1),
-	(5, 1),
-	(1, 2),
-	(4, 2),
-	(5, 2),
-	(1, 3),
-	(2, 3),
-	(5, 3),
-	(1, 4),
-	(2, 4),
-	(3, 4),
-	(2, 5),
-	(3, 5),
-	(4, 5);

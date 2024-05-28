@@ -11,6 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema Videospiele
 -- -----------------------------------------------------
+DROP DATABASE IF EXISTS `Videospiele`;
 CREATE SCHEMA IF NOT EXISTS `Videospiele` DEFAULT CHARACTER SET utf8 ;
 USE `Videospiele` ;
 
@@ -176,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `Videospiele`.`Launcher` (
   `Erscheinungsdatum` DATE NOT NULL,
   PRIMARY KEY (`Launcher_ID`),
   UNIQUE INDEX `Launcher_ID_UNIQUE` (`Launcher_ID` ASC) VISIBLE)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------

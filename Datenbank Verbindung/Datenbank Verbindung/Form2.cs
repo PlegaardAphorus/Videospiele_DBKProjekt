@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using Microsoft.VisualBasic;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +17,9 @@ namespace Datenbank_Verbindung
     public partial class Form2 : Form
     {
         private MySqlConnection sqlVerbindung;
-        public string[] tableNames = new string[22];    
-        public string[] displayNames = new string[22];    
-        
+        public List<string> tableNames = new List<string>();
+        public List<string> displayNames = new List<string>();
+
         public Form2(MySqlConnection verbindung)
         {
             InitializeComponent();
@@ -33,29 +34,73 @@ namespace Datenbank_Verbindung
             await executeCommand.ExecuteNonQueryAsync();
 
             executeCommand.CommandText = "SHOW TABLES";
-            
             MySqlDataReader reader = await executeCommand.ExecuteReaderAsync();
 
-            int i = 0;
             while (await reader.ReadAsync())
             {
-                tableNames[i] = reader.GetValue(0).ToString();
-                displayNames[i] = tableNames[i];
-                string tmp = displayNames[i].Replace("_", " ");
-                int k = tmp.Count(c => c == ' ');
+                string tableName = reader.GetValue(0).ToString();
+                tableNames.Add(tableName);
+                string displayName = tableName.Replace("_", " ");
+                int k = displayName.Count(c => c == ' ');
+
                 if (k != 2)
                 {
-                    displayNames[i] = char.ToUpper(tmp[0]) + tmp.Substring(1);
+                    displayName = char.ToUpper(displayName[0]) + displayName.Substring(1);
                 }
                 else
                 {
-                    int index = tmp.IndexOf(' ', tmp.IndexOf(' ') + 1);
-                    displayNames[i] = char.ToUpper(tmp[0]) + tmp.Substring(1, index) + char.ToUpper(tmp[index + 1]) + tmp.Substring(index + 2);
-                    index++;
+                    int index = displayName.IndexOf(' ', displayName.IndexOf(' ') + 1);
+                    displayName = char.ToUpper(displayName[0]) + displayName.Substring(1, index) + char.ToUpper(displayName[index + 1]) + displayName.Substring(index + 2);
                 }
-                i++;
+                
+                displayNames.Add(displayName);
             }
+
             lbx_tables.DataSource = displayNames;
+            reader.Close();
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            sqlVerbindung.Close();
+            Close();
+            frm_login login = new frm_login();
+            login.Show();
+            login.Focus();
+        }
+
+        private void btn_sqlCommand_Click(object sender, EventArgs e)
+        {
+            // ggf. weglassen
+            Interaction.InputBox("Bitte geben Sie den SQL Befehl ein.", "SQL Befehl");
+        }
+
+        private async void btn_dropTable_Click(object sender, EventArgs e)
+        {
+            if (lbx_tables.SelectedIndex >= 0)
+            {
+                using MySqlCommand executeCommand = new MySqlCommand("", sqlVerbindung);
+
+                executeCommand.CommandText = $"DROP TABLE {tableNames[lbx_tables.SelectedIndex]}";
+
+                try
+                {
+                    await executeCommand.ExecuteNonQueryAsync();
+                    displayNames.RemoveAt(lbx_tables.SelectedIndex);
+                    tableNames.RemoveAt(lbx_tables.SelectedIndex);
+                    lbx_tables.DataSource = null;
+                    lbx_tables.DataSource = displayNames;
+
+                }
+                catch (MySqlException ex)
+                {
+                    if (ex.Number == 3730)
+                    {
+                        MessageBox.Show("Die Tabelle konnte nicht gelöscht werden, da es einen Beziehung mit Foreign Keys gibt bitte löse das Problem und versuche es danach erneut.", "Fehler beim Löschen der Tabelle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
         }
     }
 }

@@ -55,6 +55,7 @@
             tbx_password.PasswordChar = '*';
             tbx_password.Size = new Size(150, 31);
             tbx_password.TabIndex = 3;
+            tbx_password.KeyPress += tbx_password_KeyPress;
             // 
             // tbx_username
             // 

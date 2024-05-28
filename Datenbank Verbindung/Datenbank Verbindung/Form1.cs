@@ -15,17 +15,19 @@ namespace Datenbank_Verbindung
 
         private void frm_login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private MySqlConnection sqlVerbindung;
-        
-        private async void btn_login_Click(object sender, EventArgs e)
+
+        private async void startLogin()
         {
+            bool startFailed = false;
             sqlVerbindung = new MySqlConnection($"Server=127.0.0.1;User={tbx_username.Text};Password={tbx_password.Text}");
             try
             {
                 await sqlVerbindung.OpenAsync();
+                startFailed = false;
             }
             catch (Exception ex)
             {
@@ -39,12 +41,29 @@ namespace Datenbank_Verbindung
                 {
                     MessageBox.Show("Ein unerwarteter Fehler ist aufgetreten, bitte wende dich an einen Systemadministrator", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                startFailed = true;
             }
-            Form2 tabellenAnsicht = new Form2(sqlVerbindung);
+            if (!startFailed)
+            {
+                Form2 tabellenAnsicht = new Form2(sqlVerbindung);
 
-            tabellenAnsicht.Show();
-            tabellenAnsicht.Focus();
-            Hide();
+                tabellenAnsicht.Show();
+                tabellenAnsicht.Focus();
+                Hide();
+            }
+        }
+
+        private async void btn_login_Click(object sender, EventArgs e)
+        {
+            startLogin();
+        }
+
+        private void tbx_password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                startLogin();
+            }
         }
     }
 }
