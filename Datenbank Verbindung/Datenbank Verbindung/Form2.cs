@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -52,7 +53,7 @@ namespace Datenbank_Verbindung
                     int index = displayName.IndexOf(' ', displayName.IndexOf(' ') + 1);
                     displayName = char.ToUpper(displayName[0]) + displayName.Substring(1, index) + char.ToUpper(displayName[index + 1]) + displayName.Substring(index + 2);
                 }
-                
+
                 displayNames.Add(displayName);
             }
 
@@ -90,16 +91,40 @@ namespace Datenbank_Verbindung
                     tableNames.RemoveAt(lbx_tables.SelectedIndex);
                     lbx_tables.DataSource = null;
                     lbx_tables.DataSource = displayNames;
-
+                    lbx_tables.SelectedIndex = 0;
                 }
                 catch (MySqlException ex)
                 {
                     if (ex.Number == 3730)
                     {
-                        MessageBox.Show("Die Tabelle konnte nicht gelöscht werden, da es einen Beziehung mit Foreign Keys gibt bitte löse das Problem und versuche es danach erneut.", "Fehler beim Löschen der Tabelle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Die Tabelle konnte nicht gelöscht werden, da es einen Beziehung mit Foreign Keys gibt bitte löse das Problem und versuche es danach erneut.", "Fehler beim löschen der Tabelle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (ex.Number == 1142)
+                    {
+                        MessageBox.Show("Die Tabelle konnte nicht gelöscht werden, da du nicht die Rechte dazu besitzt", "Fehler beim löschen der Tabelle", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
+            }
+        }
+
+        private async void btn_showTable_Click(object sender, EventArgs e)
+        {
+            using MySqlCommand executeCommand = new MySqlCommand("", sqlVerbindung);
+            executeCommand.CommandText = $"SELECT * FROM {tableNames[lbx_tables.SelectedIndex]}";
+
+            //MySqlDataReader reader = await executeCommand.ExecuteReaderAsync();
+
+            DataTable temp = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(executeCommand);
+            adapter.Fill(temp);
+
+            foreach (DataColumn column in temp.Columns)
+            {
+                foreach (DataRow row in temp.Rows)
+                {
+                    MessageBox.Show($"{row[column]}");
+                }
             }
         }
     }

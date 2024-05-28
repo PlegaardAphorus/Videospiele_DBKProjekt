@@ -53,6 +53,7 @@
             btn_showTable.TabIndex = 1;
             btn_showTable.Text = "Ausgewählte Tabelle öffnen";
             btn_showTable.UseVisualStyleBackColor = true;
+            btn_showTable.Click += btn_showTable_Click;
             // 
             // btn_dropTable
             // 
