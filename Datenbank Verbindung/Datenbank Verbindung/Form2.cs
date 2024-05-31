@@ -1,17 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using MySqlConnector;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
+
 
 namespace Datenbank_Verbindung
 {
@@ -20,6 +10,7 @@ namespace Datenbank_Verbindung
         private MySqlConnection sqlVerbindung;
         public List<string> tableNames = new List<string>();
         public List<string> displayNames = new List<string>();
+        public List<string> columnNames = new List<string>();
 
         public Form2(MySqlConnection verbindung)
         {
@@ -35,7 +26,7 @@ namespace Datenbank_Verbindung
             await executeCommand.ExecuteNonQueryAsync();
 
             executeCommand.CommandText = "SHOW TABLES";
-            MySqlDataReader reader = await executeCommand.ExecuteReaderAsync();
+            using MySqlDataReader reader = await executeCommand.ExecuteReaderAsync();
 
             while (await reader.ReadAsync())
             {
@@ -58,7 +49,6 @@ namespace Datenbank_Verbindung
             }
 
             lbx_tables.DataSource = displayNames;
-            reader.Close();
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
@@ -110,21 +100,30 @@ namespace Datenbank_Verbindung
 
         private async void btn_showTable_Click(object sender, EventArgs e)
         {
-            using MySqlCommand executeCommand = new MySqlCommand("", sqlVerbindung);
-            executeCommand.CommandText = $"SELECT * FROM {tableNames[lbx_tables.SelectedIndex]}";
-
-            //MySqlDataReader reader = await executeCommand.ExecuteReaderAsync();
-
-            DataTable temp = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(executeCommand);
-            adapter.Fill(temp);
-
-            foreach (DataColumn column in temp.Columns)
+            if (lbx_tables.SelectedIndex >= 0)
             {
-                foreach (DataRow row in temp.Rows)
+
+                using MySqlCommand executeCommand = new MySqlCommand("", sqlVerbindung);
+                executeCommand.CommandText = $"SELECT column_name FROM information_schema.columns WHERE table_name = \"{tableNames[lbx_tables.SelectedIndex]}\"";
+                
+                MySqlDataReader reader = await executeCommand.ExecuteReaderAsync();
+
+                while (await reader.ReadAsync())
                 {
-                    MessageBox.Show($"{row[column]}");
+                    string columnName = reader.GetValue(0).ToString();
+                    columnNames.Add(columnName);
                 }
+
+                Form3 tableView = new Form3(this, columnNames, sqlVerbindung, displayNames[lbx_tables.SelectedIndex], tableNames[lbx_tables.SelectedIndex]);
+
+                reader.Close();
+                tableView.Show();
+                tableView.Focus();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Bitte wähle zuerst eine Tabelle aus.", "Fehler beim öffnen der Tabelle", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
