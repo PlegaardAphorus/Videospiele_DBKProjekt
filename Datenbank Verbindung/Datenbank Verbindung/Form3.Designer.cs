@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             dgv_showTable = new DataGridView();
             btn_zurück = new Button();
+            btn_addRow = new Button();
+            btn_delRow = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_showTable).BeginInit();
             SuspendLayout();
             // 
@@ -56,11 +58,33 @@
             btn_zurück.UseVisualStyleBackColor = true;
             btn_zurück.Click += btn_zurück_Click;
             // 
+            // btn_addRow
+            // 
+            btn_addRow.Location = new Point(12, 280);
+            btn_addRow.Name = "btn_addRow";
+            btn_addRow.Size = new Size(218, 34);
+            btn_addRow.TabIndex = 2;
+            btn_addRow.Text = "Zeile hinzufügen";
+            btn_addRow.UseVisualStyleBackColor = true;
+            btn_addRow.Click += btn_addRow_Click;
+            // 
+            // btn_delRow
+            // 
+            btn_delRow.Location = new Point(236, 280);
+            btn_delRow.Name = "btn_delRow";
+            btn_delRow.Size = new Size(218, 34);
+            btn_delRow.TabIndex = 3;
+            btn_delRow.Text = "Zeile entfernen";
+            btn_delRow.UseVisualStyleBackColor = true;
+            btn_delRow.Click += btn_delRow_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1135, 333);
+            Controls.Add(btn_delRow);
+            Controls.Add(btn_addRow);
             Controls.Add(btn_zurück);
             Controls.Add(dgv_showTable);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -75,5 +99,7 @@
 
         private DataGridView dgv_showTable;
         private Button btn_zurück;
+        private Button btn_addRow;
+        private Button btn_delRow;
     }
 }

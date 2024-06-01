@@ -1,3 +1,24 @@
+INSERT INTO `spiele` (`Spiele_ID`, `Name`, `Erscheinungsdatum`, `Erschienen`, `Deutsch`, `Englisch`, `USK`) VALUES
+	(1, 'Grand Theft Auto V', '2013-09-17', 1, 0, 1, 18),
+	(2, 'Minecraft', '2011-11-18', 1, 1, 1, 6),
+	(3, 'Still Wakes the Deep', '2024-06-18', 0, 0, 1, 16),
+	(4, 'Fallout 4', '2015-11-10', 1, 1, 1, 18),
+	(5, 'Farming Simulator 22', '2021-11-21', 1, 1, 1, 0);
+    
+INSERT INTO `benutzer` (`Benutzer_ID`, `Name`, `Erstellungsdatum`, `Anzahl_Freunde`, `Gesamtspielzeit`, `E-mail`, `Gebursdatum`, `Meist_gespieltes_Spiel`, `Kuerzlich_gespieltes_Spiel`) VALUES
+	(1, 'Max Mustermann', '2024-05-14', 50, 350.5, 'max.mustermann@example.com', '1990-01-01', 1, 3),
+	(2, 'Erika Musterfrau', '2024-05-14', 30, 220.75, 'erika.musterfrau@example.com', '1995-03-15', 2, 5),
+	(3, 'John Doe', '2024-05-14', 20, 150.25, 'john.doe@example.com', '1985-07-20', 3, 4),
+	(4, 'Jane Doe', '2024-05-14', 40, 280, 'jane.doe@example.com', '1988-12-10', 4, 2),
+	(5, 'Alice Wonderland', '2024-05-14', 15, 100, 'alice.wonderland@example.com', '2000-05-05', 5, 1);
+
+INSERT INTO `genre` (`Genre`, `Name`, `Beschreibung`) VALUES
+	(1, 'Open World', 'Spiel, das den Spielern eine offene Spielwelt zum Erkunden bietet'),
+	(2, 'Survival', 'Spiel, in dem die Spieler ums Überleben kämpfen müssen'),
+	(3, 'Fantasy', 'Spiel mit einer fiktiven, magischen Welt'),
+	(4, 'Simulation', 'Spiel, das eine realistische Erfahrung in einem bestimmten Bereich bietet'),
+	(5, 'Strategie', 'Spiel, das taktisches Denken und strategische Planung erfordert');
+    
 INSERT INTO `achievements` (`Achievements`, `Spiele_ID`, `Name`, `Beschreibung`, `Bedingungen`, `Belohnung`) VALUES
 	(1, 1, 'Platin-Trophäe', 'Verdiene alle Trophäen im Spiel.', 'Schließe alle Missionen ab', 'Spezielle In-Game-Belohnungen'),
 	(3, 4, 'Überlebenskünstler', 'Überlebe in der postapokalyptischen Welt.', 'Überlebe 100 Tage in der Wildnis', 'In-Game-Trophäe'),
@@ -15,13 +36,6 @@ INSERT INTO `achievements_has_benutzer` (`Achievements`, `Benutzer_ID`) VALUES
 	(3, 4),
 	(4, 5),
 	(6, 5);
-
-INSERT INTO `benutzer` (`Benutzer_ID`, `Name`, `Erstellungsdatum`, `Anzahl_Freunde`, `Gesamtspielzeit`, `E-mail`, `Gebursdatum`, `Meist_gespieltes_Spiel`, `Kuerzlich_gespieltes_Spiel`) VALUES
-	(1, 'Max Mustermann', '2024-05-14', 50, 350.5, 'max.mustermann@example.com', '1990-01-01', 1, 3),
-	(2, 'Erika Musterfrau', '2024-05-14', 30, 220.75, 'erika.musterfrau@example.com', '1995-03-15', 2, 5),
-	(3, 'John Doe', '2024-05-14', 20, 150.25, 'john.doe@example.com', '1985-07-20', 3, 4),
-	(4, 'Jane Doe', '2024-05-14', 40, 280, 'jane.doe@example.com', '1988-12-10', 4, 2),
-	(5, 'Alice Wonderland', '2024-05-14', 15, 100, 'alice.wonderland@example.com', '2000-05-05', 5, 1);
 
 INSERT INTO `bewertung` (`Bewertung_ID`, `Benutzer_ID`, `Bewertung`, `Bewertungs_Datum`, `Metacritic-Score`) VALUES
 	(1, 1, 'Ein unglaubliches Spiel, das mich seit Jahren fesselt.', '2024-05-14', 95),
@@ -54,13 +68,6 @@ INSERT INTO `entwickler_has_spiele` (`Entwickler_ID`, `Spiele_ID`) VALUES
 	(3, 3),
 	(4, 4),
 	(5, 5);
-
-INSERT INTO `genre` (`Genre`, `Name`, `Beschreibung`) VALUES
-	(1, 'Open World', 'Spiel, das den Spielern eine offene Spielwelt zum Erkunden bietet'),
-	(2, 'Survival', 'Spiel, in dem die Spieler ums Überleben kämpfen müssen'),
-	(3, 'Fantasy', 'Spiel mit einer fiktiven, magischen Welt'),
-	(4, 'Simulation', 'Spiel, das eine realistische Erfahrung in einem bestimmten Bereich bietet'),
-	(5, 'Strategie', 'Spiel, das taktisches Denken und strategische Planung erfordert');
 
 INSERT INTO `genre_has_spiele` (`Genre`, `Spiele_ID`) VALUES
 	(1, 1),
@@ -132,13 +139,6 @@ INSERT INTO `publisher_has_spiele` (`Publisher_ID`, `Spiele_ID`) VALUES
 	(3, 3),
 	(4, 4),
 	(5, 5);
-
-INSERT INTO `spiele` (`Spiele_ID`, `Name`, `Erscheinungsdatum`, `Erschienen`, `Deutsch`, `Englisch`, `USK`) VALUES
-	(1, 'Grand Theft Auto V', '2013-09-17', 1, 0, 1, 18),
-	(2, 'Minecraft', '2011-11-18', 1, 1, 1, 6),
-	(3, 'Still Wakes the Deep', '2024-06-18', 0, 0, 1, 16),
-	(4, 'Fallout 4', '2015-11-10', 1, 1, 1, 18),
-	(5, 'Farming Simulator 22', '2021-11-21', 1, 1, 1, 0);
 
 INSERT INTO `spiele_has_benutzer` (`Spiele_ID`, `Benutzer_ID`) VALUES
 	(1, 1),

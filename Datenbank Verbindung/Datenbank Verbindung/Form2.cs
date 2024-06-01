@@ -60,12 +60,6 @@ namespace Datenbank_Verbindung
             login.Focus();
         }
 
-        private void btn_sqlCommand_Click(object sender, EventArgs e)
-        {
-            // ggf. weglassen
-            Interaction.InputBox("Bitte geben Sie den SQL Befehl ein.", "SQL Befehl");
-        }
-
         private async void btn_dropTable_Click(object sender, EventArgs e)
         {
             if (lbx_tables.SelectedIndex >= 0)
@@ -114,7 +108,7 @@ namespace Datenbank_Verbindung
                     columnNames.Add(columnName);
                 }
 
-                Form3 tableView = new Form3(this, columnNames, sqlVerbindung, displayNames[lbx_tables.SelectedIndex], tableNames[lbx_tables.SelectedIndex]);
+                Form3 tableView = new Form3(columnNames, sqlVerbindung, displayNames[lbx_tables.SelectedIndex], tableNames[lbx_tables.SelectedIndex]);
 
                 reader.Close();
                 tableView.Show();
