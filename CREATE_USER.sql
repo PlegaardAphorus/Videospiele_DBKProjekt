@@ -1,18 +1,43 @@
 use videospiele;
 
+
+Create View V_Admin As Select achievements.Achievements, achievements.Spiele_ID, achievements.name as Achievement_Name, achievements.Beschreibung, achievements.Bedingungen, 
+achievements.Belohnung, benutzer.Benutzer_ID, benutzer.name as Benutzer_Name, 
+.Erstellungsdatum, benutzer.Anzahl_Freunde, benutzer.Gesamtspielzeit,benutzer.E-mail, 
+benutzer.Gebursdatum, benutzer.Meist_gespieltes_Spiel, Kuerzlich_gespieltes_Spiel From achievements 
+inner join achievements_has_benutzer using (Achievements) INNER JOIN Benutzer USING (Benutzer_ID);
+
+Drop View V_Admin;
+
+Create View V_Einkauf_Uebersicht_Lieferanten_Teile AS 
+Select Lief_Nr,Lieferanten.Name, Count(TNR) From lieferanten inner join lieferprogramme using (Lief_Nr) 
+group by Lief_Nr;
+
 Create Role 'Admin', 'Mitarbeiter', 'Praktikant';
+Drop Role 'Admin', 'Mitarbeiter', 'Praktikant';
 
 Create User 'F.Lingnau'@'localhost' identified by '2709';
 Create User 'L.Graef'@'localhost' identified by '2709';
 Create User 'Professor.I.Gidd'@'localhost' identified by '2709';
 Create User 'M.Burns'@'localhost'identified by '2709';
+Drop User 'F.Lingnau'@'localhost';
+Drop User 'L.Graef'@'localhost';
+Drop User 'Professor.I.Gidd'@'localhost';
+Drop User 'M.Burns'@'localhost';
 
-GRANT ALL PRIVILEGES ON videospiele.* TO 'Admin';
-GRANT SELECT, DELETE, INSERT, UPDATE, ALTER ON videospiele.* TO 'Mitarbeiter';
-GRANT SELECT ON videospiele.* TO 'Praktikant';
+Grant All Privileges on plattformen To 'Admin';
+Grant Delete on Spiele To 'Mitarbeiter';
+Grant Insert on Spiele To 'Mitarbeiter';
+Grant Update on Spiele To 'Mitarbeiter';
+Grant Alter on Spiele To 'Mitarbeiter';
+Grant Select on benutzer To 'Praktikant';
 
-GRANT 'Admin' TO 'Professor.I.Gidd'@'localhost';
-GRANT 'Mitarbeiter' TO 'L.Graef'@'localhost', 'F.Lingnau'@'localhost';
-GRANT 'Praktikant' TO 'M.Burns'@'localhost';
+Grant 'Admin' TO  'Professor.I.Gidd'@'localhost';
+Grant 'Mitarbeiter' TO  'L.Graef'@'localhost';
+Grant 'Mitarbeiter' TO  'F.Lingnau'@'localhost';
+Grant 'Praktikant' TO  'M.Burns'@'localhost';
+
+SET DEFAULT ROLE ALL TO 'Professor.I.Gidd'@'localhost', 'L.Graef'@'localhost', 
+'F.Lingnau'@'localhost', 'M.Burns'@'localhost';
 
 flush privileges;
