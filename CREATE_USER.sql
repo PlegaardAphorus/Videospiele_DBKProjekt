@@ -1,17 +1,7 @@
 use videospiele;
 
-
-Create View V_Admin As Select achievements.Achievements, achievements.Spiele_ID, achievements.name as Achievement_Name, achievements.Beschreibung, achievements.Bedingungen, 
-achievements.Belohnung, benutzer.Benutzer_ID, benutzer.name as Benutzer_Name, 
-.Erstellungsdatum, benutzer.Anzahl_Freunde, benutzer.Gesamtspielzeit,benutzer.E-mail, 
-benutzer.Gebursdatum, benutzer.Meist_gespieltes_Spiel, Kuerzlich_gespieltes_Spiel From achievements 
-inner join achievements_has_benutzer using (Achievements) INNER JOIN Benutzer USING (Benutzer_ID);
-
-Drop View V_Admin;
-
-Create View V_Einkauf_Uebersicht_Lieferanten_Teile AS 
-Select Lief_Nr,Lieferanten.Name, Count(TNR) From lieferanten inner join lieferprogramme using (Lief_Nr) 
-group by Lief_Nr;
+CREATE VIEW V_Benutzer AS SELECT Benutzer_ID, Name, Erstellungsdatum, Anzahl_Freunde, Gesamtspielzeit, Meist_gespieltes_Spiel, Kuerzlich_gespieltes_Spiel;
+CREATE VIEW V_Verkäufer AS SELECT Verkäufer_ID, Name, Standort, Zahlungsart, Versandoptionen;
 
 Create Role 'Admin', 'Mitarbeiter', 'Praktikant';
 Drop Role 'Admin', 'Mitarbeiter', 'Praktikant';
