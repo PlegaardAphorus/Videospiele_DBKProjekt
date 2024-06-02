@@ -24,6 +24,9 @@
   - 404: Der angegebene Wert kann nicht in der Zukunft liegen
   - 405: Es kann kein Spiel vor den Jahre 1952 erscchienen sein!
   - 406: Sie haben einen Wert eingegeben der nicht den erwarteten Parameter entspricht
+  - 407: Der Wert kann nicht kleiner sein als 0
+  - 408: Der Benutzer kann nicht mehr Spielzeit in einem Spiel haben als er gesamt in allen hat", 
+  - 409: Eine e-mail muss ein @ inhalten und kann auch nur ein @ inhalten
 
 ## 2. Wichtige Links
   - [Github Repository](https://github.com/PlegaardAphorus/Videospiele_DBKProjekt)
