@@ -25,12 +25,13 @@ Drop User 'L.Graef'@'localhost';
 Drop User 'Professor.I.Gidd'@'localhost';
 Drop User 'M.Burns'@'localhost';
 
-Grant All Privileges on plattformen To 'Admin';
-Grant Delete on Spiele To 'Mitarbeiter';
-Grant Insert on Spiele To 'Mitarbeiter';
-Grant Update on Spiele To 'Mitarbeiter';
-Grant Alter on Spiele To 'Mitarbeiter';
-Grant Select on benutzer To 'Praktikant';
+Grant All Privileges on videospiele.* To 'Admin';
+Grant Select on videospiele.* To 'Mitarbeiter';
+Grant Delete on videospiele.* To 'Mitarbeiter';
+Grant Insert on videospiele.* To 'Mitarbeiter';
+Grant Update on videospiele.* To 'Mitarbeiter';
+Grant Alter on videospiele.* To 'Mitarbeiter';
+Grant Select on videospiele.* To 'Praktikant';
 
 Grant 'Admin' TO  'Professor.I.Gidd'@'localhost';
 Grant 'Mitarbeiter' TO  'L.Graef'@'localhost';
