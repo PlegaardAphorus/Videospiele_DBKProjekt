@@ -133,7 +133,7 @@ else
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der angegebene Wert kann nicht in der Zukunft liegen", 
    MYSQL_ERRNO = "404";
    
-End if ;
+End if; 
 
 End //
 Delimiter ;
