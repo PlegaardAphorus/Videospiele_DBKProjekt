@@ -55,7 +55,7 @@ Delimiter ;
  Delimiter //
 Create Trigger T_Verkaeufer  before insert on Verkäufer for each row 
 Begin 
-else if verkäufer.e-mail not like "%@%" then 
+elseif verkäufer.e-mail not like "%@%" then 
 SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Eine e-mail muss ein @ inhalten und kann auch nur ein @ 
 inhalten",
     MYSQL_ERRNO = "409";
@@ -112,21 +112,21 @@ Delimiter //
 Create Trigger T_Benutzer before insert on Benutzer for each row 
 Begin
 
-if   benutzer.erstellungsdatum > current_date() then
+if benutzer.erstellungsdatum > current_date() then
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der angegebene Wert kann nicht in der Zukunft liegen", 
     MYSQL_ERRNO = "404";
-else if benutzer.Anzahl_Freunde < 0 then 
+elseif benutzer.Anzahl_Freunde < 0 then 
 SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der Wert kann nicht kleiner sein als 0", 
     MYSQL_ERRNO = "407";
-else if benutzer.meist_gespieltes_Spiel > benutzer.Gesamtspielzeit then
+elseif benutzer.meist_gespieltes_Spiel > benutzer.Gesamtspielzeit then
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der Benutzer kann nicht mehr Spielzeit in einem Spiel 
     haben als er gesamt in allen hat", 
     MYSQL_ERRNO = "408";
-else if benutzer.e-mail not like "%@%" then 
+elseif benutzer.e-mail not like "%@%" then 
 SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Eine e-mail muss ein @ inhalten und kann auch nur ein @ 
 inhalten",
     MYSQL_ERRNO = "409";
-else if benutzer.gebursdatum > current_data() then 
+elseif benutzer.gebursdatum > current_data() then 
 		SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der angegebene Wert kann nicht in der Zukunft liegen", 
 		MYSQL_ERRNO = "404";
 else 

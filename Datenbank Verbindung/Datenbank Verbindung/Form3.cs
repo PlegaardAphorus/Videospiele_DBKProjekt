@@ -105,9 +105,77 @@ namespace Datenbank_Verbindung
             }
         }
 
+
+
+        private void dgv_showTable_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (!dgv_showTable.Rows[e.RowIndex].IsNewRow)
+            {
+                e.Cancel = true;
+            }
+        }
+
         private void btn_addRow_Click(object sender, EventArgs e)
         {
+            int rowIndex = dgv_showTable.Rows.Add();
+            DataGridViewRow createRow = dgv_showTable.Rows[rowIndex];
+            dgv_showTable.CurrentCell = createRow.Cells[0];
+            dgv_showTable.BeginEdit(true);
+            dgv_showTable.ReadOnly = false;
 
+            foreach (DataGridViewRow row in dgv_showTable.Rows)
+            {
+                if (row != createRow)
+                {
+                    row.ReadOnly = true;
+                }
+            }
         }
+
+        private async void btn_saveRow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgv_showTable.EndEdit();
+
+                DataGridViewRow newRow = dgv_showTable.Rows.Cast<DataGridViewRow>().FirstOrDefault(r => r.IsNewRow);
+
+                if (newRow == null)
+                {
+                    MessageBox.Show("Keine neue Zeile gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                List<string> values = new List<string>();
+                foreach (DataGridViewCell cell in newRow.Cells)
+                {
+                    if (cell.Value != null && !string.IsNullOrEmpty(cell.Value.ToString()))
+                    {
+                        values.Add($"'{cell.Value}'");
+                    }
+                    else
+                    {
+                        values.Add("NULL");
+                    }
+                }
+
+                string columnList = string.Join(", ", columnNames);
+                string valueList = string.Join(", ", values);
+
+                using MySqlCommand executeCommand = new MySqlCommand("", sqlVerbindung);
+                executeCommand.CommandText = $"INSERT INTO {tableName} ({columnList}) VALUES ({valueList})";
+                await executeCommand.ExecuteNonQueryAsync();
+
+                MessageBox.Show("Neue Zeile erfolgreich hinzugefügt!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Form3_Load(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Hinzufügen der Zeile: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
+
 }
