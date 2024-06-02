@@ -1,7 +1,7 @@
 use videospiele;
 
-CREATE VIEW V_Benutzer AS SELECT Benutzer_ID, Name, Erstellungsdatum, Anzahl_Freunde, Gesamtspielzeit, Meist_gespieltes_Spiel, Kuerzlich_gespieltes_Spiel;
-CREATE VIEW V_Verkäufer AS SELECT Verkäufer_ID, Name, Standort, Zahlungsart, Versandoptionen;
+CREATE VIEW V_Benutzer AS SELECT Benutzer_ID, Name, Erstellungsdatum, Anzahl_Freunde, Gesamtspielzeit, Meist_gespieltes_Spiel, Kuerzlich_gespieltes_Spiel FROM Videospiele.Benutzer;
+CREATE VIEW V_Verkäufer AS SELECT Verkäufer_ID, Name, Standort, Zahlungsart, Versandoptionen FROM Videospiele.Verkäufer;
 
 Create Role 'Admin', 'Mitarbeiter', 'Praktikant';
 Drop Role 'Admin', 'Mitarbeiter', 'Praktikant';
