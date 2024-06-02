@@ -1,0 +1,7 @@
+C:\Users\luke0\Desktop\Release\Datenbank Verbindung.pdb
+C:\Users\luke0\Desktop\Release\D3DCompiler_47_cor3.dll
+C:\Users\luke0\Desktop\Release\PenImc_cor3.dll
+C:\Users\luke0\Desktop\Release\PresentationNative_cor3.dll
+C:\Users\luke0\Desktop\Release\vcruntime140_cor3.dll
+C:\Users\luke0\Desktop\Release\wpfgfx_cor3.dll
+C:\Users\luke0\Desktop\Release\Datenbank Verbindung.exe
