@@ -12,10 +12,6 @@ namespace Datenbank_Verbindung
 
         private void frm_login_Load(object sender, EventArgs e)
         {
-            // \/\/\/ DEBUG OPTION \/\/\/
-            tbx_username.Text = "root";
-            tbx_password.Text = "MeisterYoda233";
-            // /\/\/\ DEBUG OPTION /\/\/\
         }
 
         private MySqlConnection sqlVerbindung;

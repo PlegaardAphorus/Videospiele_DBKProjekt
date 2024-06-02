@@ -7,17 +7,12 @@ Create User 'L.Graef'@'localhost' identified by '2709';
 Create User 'Professor.I.Gidd'@'localhost' identified by '2709';
 Create User 'M.Burns'@'localhost'identified by '2709';
 
-Grant All Privileges on videospiele To 'Admin';
-Grant Select on videospiele To 'Mitarbeiter';
-Grant Delete on videospiele To 'Mitarbeiter';
-Grant Insert on videospiele To 'Mitarbeiter';
-Grant Update on videospiele To 'Mitarbeiter';
-Grant Alter on videospiele To 'Mitarbeiter';
-Grant Select on videospiele To 'Praktikant';
+GRANT ALL PRIVILEGES ON videospiele.* TO 'Admin';
+GRANT SELECT, DELETE, INSERT, UPDATE, ALTER ON videospiele.* TO 'Mitarbeiter';
+GRANT SELECT ON videospiele.* TO 'Praktikant';
 
-Grant 'Admin' TO  'Professor.I.Gidd'@'localhost';
-Grant 'Mitarbeiter' TO  'L.Graef'@'localhost';
-Grant 'Mitarbeiter' TO  'F.Lingnau'@'localhost';
-Grant 'Praktikant' TO  'M.Burns'@'localhost';
+GRANT 'Admin' TO 'Professor.I.Gidd'@'localhost';
+GRANT 'Mitarbeiter' TO 'L.Graef'@'localhost', 'F.Lingnau'@'localhost';
+GRANT 'Praktikant' TO 'M.Burns'@'localhost';
 
 flush privileges;
