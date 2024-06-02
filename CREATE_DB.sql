@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `Videospiele`.`Spiele` (
   `Deutsch` TINYINT NULL,
   `Englisch` TINYINT NULL,
   `USK` INT NULL,
+  `Metacritic-Score` INT NOT NULL,
   PRIMARY KEY (`Spiele_ID`),
   UNIQUE INDEX `Spiele_ID_UNIQUE` (`Spiele_ID` ASC) VISIBLE,
   UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
@@ -87,15 +88,20 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Videospiele`.`Bewertung` (
   `Bewertung_ID` INT NOT NULL AUTO_INCREMENT,
   `Benutzer_ID` INT NOT NULL,
+  `Spiele_ID` INT NOT NULL,
   `Bewertung` LONGTEXT NOT NULL,
   `Bewertungs_Datum` DATE NOT NULL,
-  `Metacritic-Score` INT NOT NULL,
   PRIMARY KEY (`Bewertung_ID`),
   UNIQUE INDEX `Bewertung_ID_UNIQUE` (`Bewertung_ID` ASC) VISIBLE,
   INDEX `fk_Bewertung_Benutzer1_idx` (`Benutzer_ID` ASC) VISIBLE,
   CONSTRAINT `fk_Bewertung_Benutzer1`
     FOREIGN KEY (`Benutzer_ID`)
     REFERENCES `Videospiele`.`Benutzer` (`Benutzer_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Bewerung_Spiele1`
+    FOREIGN KEY (`Spiele_ID`)
+    REFERENCES `Videospiele`.`Spiele` (`Spiele_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

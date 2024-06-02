@@ -48,7 +48,6 @@
             dgv_showTable.RowHeadersWidth = 62;
             dgv_showTable.Size = new Size(1111, 262);
             dgv_showTable.TabIndex = 0;
-            dgv_showTable.CellBeginEdit += dgv_showTable_CellBeginEdit;
             // 
             // btn_zurück
             // 

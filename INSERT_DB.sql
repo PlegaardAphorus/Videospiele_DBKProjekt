@@ -1,9 +1,9 @@
-INSERT INTO `spiele` (`Spiele_ID`, `Name`, `Erscheinungsdatum`, `Erschienen`, `Deutsch`, `Englisch`, `USK`) VALUES
-	(1, 'Grand Theft Auto V', '2013-09-17', 1, 0, 1, 18),
-	(2, 'Minecraft', '2011-11-18', 1, 1, 1, 6),
-	(3, 'Still Wakes the Deep', '2024-06-18', 0, 0, 1, 16),
-	(4, 'Fallout 4', '2015-11-10', 1, 1, 1, 18),
-	(5, 'Farming Simulator 22', '2021-11-21', 1, 1, 1, 0);
+INSERT INTO `spiele` (`Spiele_ID`, `Name`, `Erscheinungsdatum`, `Erschienen`, `Deutsch`, `Englisch`, `USK`, `Metacritic-Score`) VALUES
+	(1, 'Grand Theft Auto V', '2013-09-17', 1, 0, 1, 18, 95),
+	(2, 'Minecraft', '2011-11-18', 1, 1, 1, 6, 93),
+	(3, 'Still Wakes the Deep', '2024-06-18', 0, 0, 1, 16, 87),
+	(4, 'Fallout 4', '2015-11-10', 1, 1, 1, 18, 80),
+	(5, 'Farming Simulator 22', '2021-11-21', 1, 1, 1, 0, 98);
     
 INSERT INTO `benutzer` (`Benutzer_ID`, `Name`, `Erstellungsdatum`, `Anzahl_Freunde`, `Gesamtspielzeit`, `E-mail`, `Gebursdatum`, `Meist_gespieltes_Spiel`, `Kuerzlich_gespieltes_Spiel`) VALUES
 	(1, 'Max Mustermann', '2024-05-14', 50, 350.5, 'max.mustermann@example.com', '1990-01-01', 1, 3),
@@ -37,12 +37,12 @@ INSERT INTO `achievements_has_benutzer` (`Achievements`, `Benutzer_ID`) VALUES
 	(4, 5),
 	(6, 5);
 
-INSERT INTO `bewertung` (`Bewertung_ID`, `Benutzer_ID`, `Bewertung`, `Bewertungs_Datum`, `Metacritic-Score`) VALUES
-	(1, 1, 'Ein unglaubliches Spiel, das mich seit Jahren fesselt.', '2024-05-14', 95),
-	(2, 2, 'Minecraft ist ein zeitloser Klassiker!', '2024-05-14', 93),
-	(3, 4, 'Bethesda hat es wieder einmal geschafft, eine immersive Welt zu schaffen.', '2024-05-14', 87),
-	(4, 5, 'Der Simulator bietet eine entspannende Landwirtschaftserfahrung.', '2024-05-14', 80),
-	(5, 4, 'Ein echtes Meisterwerk!', '2024-05-15', 98);
+INSERT INTO `bewertung` (`Bewertung_ID`, `Benutzer_ID`, `Spiele_ID`, `Bewertung`, `Bewertungs_Datum`) VALUES
+	(1, 1, 5, 'Ein unglaubliches Spiel, das mich seit Jahren fesselt.', '2024-05-14'),
+	(2, 2, 2, 'Minecraft ist ein zeitloser Klassiker!', '2024-05-14'),
+	(3, 4, 4, 'Bethesda hat es wieder einmal geschafft, eine immersive Welt zu schaffen.', '2024-05-14'),
+	(4, 5, 5, 'Der Simulator bietet eine entspannende Landwirtschaftserfahrung.', '2024-05-14'),
+	(5, 4, 1, 'Ein echtes Meisterwerk!', '2024-05-15');
 
 INSERT INTO `entwickler` (`Entwickler_ID`, `Name`, `Bekannte Spiele`, `Gründungsjahr`, `Main-Engine`, `Hauptsitz`) VALUES
 	(1, 'Rockstar Games', 10, '1998-12-01', 'Rockstar Advanced Game Engine', 'New York, USA'),
