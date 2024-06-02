@@ -1,5 +1,7 @@
 ﻿using MySqlConnector;
+using System;
 using System.Data;
+using System.Reflection.Metadata;
 using System.Windows.Forms;
 
 namespace Datenbank_Verbindung
@@ -105,77 +107,142 @@ namespace Datenbank_Verbindung
             }
         }
 
+        private bool successImport = false;
 
-
-        private void dgv_showTable_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        private async void executeCommandAsync(MySqlCommand executeCommand)
         {
-            if (!dgv_showTable.Rows[e.RowIndex].IsNewRow)
+            try
             {
-                e.Cancel = true;
+                await executeCommand.ExecuteNonQueryAsync();
+                successImport = true;
+            }
+            catch (MySqlException e)
+            {
+                switch (e.Number)
+                {
+                    case 404:
+                        MessageBox.Show("Einer der angegebenen Werte kann nicht in der Zukunft liegen.", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                    case 405:
+                        MessageBox.Show("Es kann kein Spiel vor den Jahre 1952 erschienen sein.", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                    case 406:
+                        MessageBox.Show("Sie haben einen Wert eingegeben der nicht den erwarteten Parameter entspricht.", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                    case 407:
+                        MessageBox.Show("Einer der Werte kann nicht kleiner sein als 0", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                    case 408:
+                        MessageBox.Show("Der Benutzer kann nicht mehr Spielzeit in einem Spiel haben als er gesamt in allen hat", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                    case 409:
+                        MessageBox.Show("Eine e-mail muss ein @ inhalten und kann auch nur ein @ inhalten", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                    default:
+                        MessageBox.Show("Ein unerwarteter Fehler ist aufgetreten bitte wende dich an einen Administrator.", "Fehler beim hinzufügen des Datensatzes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        successImport = false;
+                        break;
+                }
             }
         }
 
         private void btn_addRow_Click(object sender, EventArgs e)
         {
-            int rowIndex = dgv_showTable.Rows.Add();
-            DataGridViewRow createRow = dgv_showTable.Rows[rowIndex];
-            dgv_showTable.CurrentCell = createRow.Cells[0];
-            dgv_showTable.BeginEdit(true);
-            dgv_showTable.ReadOnly = false;
+            Form inputForm = new Form();
+            inputForm.Text = "Neue Zeile hinzufügen";
+            inputForm.Width = 600;
+            inputForm.Height = 500;
+            inputForm.MinimumSize = new Size(600, 500);
+            inputForm.MaximumSize = new Size(600, 500);
+            inputForm.StartPosition = FormStartPosition.CenterScreen;
+            inputForm.Icon = Icon;
 
-            foreach (DataGridViewRow row in dgv_showTable.Rows)
+            int currentTop = 20;
+
+            TextBox[] textBoxes = new TextBox[dgv_showTable.Columns.Count];
+            for (int i = 0; i < dgv_showTable.Columns.Count; i++)
             {
-                if (row != createRow)
+                Label label = new Label
                 {
-                    row.ReadOnly = true;
-                }
+                    Text = dgv_showTable.Columns[i].HeaderText,
+                    Left = 20,
+                    Top = currentTop,
+                    AutoSize = true
+                };
+                inputForm.Controls.Add(label);
+
+                textBoxes[i] = new TextBox
+                {
+                    Left = 200,
+                    Top = currentTop,
+                    Width = 200
+                };
+                inputForm.Controls.Add(textBoxes[i]);
+
+                currentTop += 40;
             }
-        }
 
-        private async void btn_saveRow_Click(object sender, EventArgs e)
-        {
-            try
+            Button confirmButton = new Button
             {
-                dgv_showTable.EndEdit();
-
-                DataGridViewRow newRow = dgv_showTable.Rows.Cast<DataGridViewRow>().FirstOrDefault(r => r.IsNewRow);
-
-                if (newRow == null)
+                Text = "Hinzufügen",
+                Left = 150,
+                Top = currentTop,
+                Width = 120,
+                Height = 40
+            };
+            confirmButton.Click += (s, args) =>
+            {
+                string[] rowValues = new string[dgv_showTable.Columns.Count];
+                for (int i = 0; i < textBoxes.Length; i++)
                 {
-                    MessageBox.Show("Keine neue Zeile gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    rowValues[i] = textBoxes[i].Text;
                 }
+                dgv_showTable.Rows.Add(rowValues);
 
-                List<string> values = new List<string>();
-                foreach (DataGridViewCell cell in newRow.Cells)
+                string columns = "";
+                string values = "";
+                for (int i = 0; i < dgv_showTable.Columns.Count; i++)
                 {
-                    if (cell.Value != null && !string.IsNullOrEmpty(cell.Value.ToString()))
+                    columns += dgv_showTable.Columns[i].Name;
+                    values += $"'{textBoxes[i].Text}'";
+                    if (i != dgv_showTable.Columns.Count - 1)
                     {
-                        values.Add($"'{cell.Value}'");
-                    }
-                    else
-                    {
-                        values.Add("NULL");
+                        columns += ",";
+                        values += ",";
                     }
                 }
-
-                string columnList = string.Join(", ", columnNames);
-                string valueList = string.Join(", ", values);
-
                 using MySqlCommand executeCommand = new MySqlCommand("", sqlVerbindung);
-                executeCommand.CommandText = $"INSERT INTO {tableName} ({columnList}) VALUES ({valueList})";
-                await executeCommand.ExecuteNonQueryAsync();
+                executeCommand.CommandText = $"INSERT INTO {tableName} ({columns}) VALUES ({values})";
+                executeCommandAsync(executeCommand);
+                if (successImport)
+                {
+                    MessageBox.Show("Daten erfolgreich hinzugefügt.");
+                }
+                inputForm.Close();
+            };
+            inputForm.Controls.Add(confirmButton);
 
-                MessageBox.Show("Neue Zeile erfolgreich hinzugefügt!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Form3_Load(sender, e);
-            }
-            catch (Exception ex)
+            Button cancelButton = new Button
             {
-                MessageBox.Show($"Fehler beim Hinzufügen der Zeile: {ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                Text = "Abbrechen",
+                Left = 270,
+                Top = currentTop,
+                Width = 120,
+                Height = 40
+            };
+            cancelButton.Click += (s, args) =>
+            {
+                inputForm.Close();
+            };
+            inputForm.Controls.Add(cancelButton);
+
+            inputForm.ShowDialog();
         }
-
     }
-
 }
