@@ -21,3 +21,4 @@ C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank
 C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank Verbindung.csproj.AssemblyReference.cache
 C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenban.3EE0FE93.Up2Date
 C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank_Verbindung.Form2.resources
+C:\Users\luke0\Desktop\DBK\Videospiele_DBKProjekt\Datenbank Verbindung\Datenbank Verbindung\obj\Debug\net8.0-windows\Datenbank_Verbindung.Form3.resources

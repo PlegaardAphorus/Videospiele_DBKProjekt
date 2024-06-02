@@ -32,7 +32,6 @@
             lbx_tables = new ListBox();
             btn_showTable = new Button();
             btn_dropTable = new Button();
-            btn_sqlCommand = new Button();
             btn_logout = new Button();
             SuspendLayout();
             // 
@@ -65,16 +64,6 @@
             btn_dropTable.UseVisualStyleBackColor = true;
             btn_dropTable.Click += btn_dropTable_Click;
             // 
-            // btn_sqlCommand
-            // 
-            btn_sqlCommand.Location = new Point(271, 92);
-            btn_sqlCommand.Name = "btn_sqlCommand";
-            btn_sqlCommand.Size = new Size(273, 34);
-            btn_sqlCommand.TabIndex = 3;
-            btn_sqlCommand.Text = "SQL Befehl eingeben";
-            btn_sqlCommand.UseVisualStyleBackColor = true;
-            btn_sqlCommand.Click += btn_sqlCommand_Click;
-            // 
             // btn_logout
             // 
             btn_logout.Location = new Point(271, 382);
@@ -91,7 +80,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(554, 450);
             Controls.Add(btn_logout);
-            Controls.Add(btn_sqlCommand);
             Controls.Add(btn_dropTable);
             Controls.Add(btn_showTable);
             Controls.Add(lbx_tables);
@@ -109,7 +97,6 @@
         private ListBox lbx_tables;
         private Button btn_showTable;
         private Button btn_dropTable;
-        private Button btn_sqlCommand;
         private Button btn_logout;
     }
 }

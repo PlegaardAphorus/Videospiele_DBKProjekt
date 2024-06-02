@@ -1,7 +1,4 @@
 using MySqlConnector;
-using System.Diagnostics;
-using System.Media;
-using System.Net.Http.Headers;
 
 namespace Datenbank_Verbindung
 {
