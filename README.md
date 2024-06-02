@@ -1,7 +1,7 @@
 ## 1. Dokumentation
 
 ### Bedienung der Software:
-  1. Öffnen unter Videospiele_DBKProjekt/Datenbank Verbindung/Releases/ SOON
+  1. Öffnen unter Videospiele_DBKProjekt/Datenbank Verbindung.exe
   2. Anmelden mit einem der unten stehenden Benutzern oder dem persönlichem root Benutzer.
 
 ### Benutzer:
@@ -32,5 +32,11 @@
   - [Github Repository](https://github.com/PlegaardAphorus/Videospiele_DBKProjekt)
   - [Excel Tabelle](https://docs.google.com/spreadsheets/d/1E1tk26ur3Ru5_9vGRtoZ154Bzjs1nrfR2v1yUrVq2Fo/edit#gid=0)
 
-## 3. Sonstiges
-  Hier könnte ihre Werbung stehen!
+## 3. Credits
+  - ER Modell (Crowfoot, Chen): Florian Paul Lingnau, Lukas Graef
+  - CREATE_DB.sql: Florian Paul Lingnau
+  - CREATE_USER.sql: Florian Paul Lingnau
+  - CREATE_TRIGGER.sql: Florian Paul Lingnau
+  - CREATE_PROCEDUREN.sql: Florian Paul Lingnau
+  - INSER_DB.sql: Lukas Graef
+  - GUI / Datenbank Verbindung: Lukas Graef
