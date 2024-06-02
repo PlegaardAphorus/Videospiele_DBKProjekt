@@ -11,7 +11,7 @@ if spiele.erscheinungsdatum > current_date() then
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der angegebene Wert kann nicht in der Zukunft liegen", 
     MYSQL_ERRNO = "404";
     
-elseif year(spiele.erscheinungsdatum) < 1952 then 
+elseif year(spiele.erscheinungsdatum) < "1952-01-01" then 
 
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Es kann kein Spiel vor den Jahre 1952 erscchienen sein! ", 
     MYSQL_ERRNO = "405";
@@ -28,6 +28,8 @@ end if ;
   
 
 End //
+
+Insert Into Spiele(erscheinungsdatum) Values (1953-01-01);
 
 Delimiter ;  
 
@@ -55,7 +57,7 @@ Delimiter ;
  Delimiter //
 Create Trigger T_Verkaeufer  before insert on Verkäufer for each row 
 Begin 
-elseif verkäufer.e-mail not like "%@%" then 
+else if verkäufer.e-mail not like "%@%" then 
 SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Eine e-mail muss ein @ inhalten und kann auch nur ein @ 
 inhalten",
     MYSQL_ERRNO = "409";
@@ -112,21 +114,21 @@ Delimiter //
 Create Trigger T_Benutzer before insert on Benutzer for each row 
 Begin
 
-if benutzer.erstellungsdatum > current_date() then
+if   benutzer.erstellungsdatum > current_date() then
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der angegebene Wert kann nicht in der Zukunft liegen", 
     MYSQL_ERRNO = "404";
-elseif benutzer.Anzahl_Freunde < 0 then 
+else if benutzer.Anzahl_Freunde < 0 then 
 SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der Wert kann nicht kleiner sein als 0", 
     MYSQL_ERRNO = "407";
-elseif benutzer.meist_gespieltes_Spiel > benutzer.Gesamtspielzeit then
+else if benutzer.meist_gespieltes_Spiel > benutzer.Gesamtspielzeit then
 	SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der Benutzer kann nicht mehr Spielzeit in einem Spiel 
     haben als er gesamt in allen hat", 
     MYSQL_ERRNO = "408";
-elseif benutzer.e-mail not like "%@%" then 
+else if benutzer.e-mail not like "%@%" then 
 SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Eine e-mail muss ein @ inhalten und kann auch nur ein @ 
 inhalten",
     MYSQL_ERRNO = "409";
-elseif benutzer.gebursdatum > current_data() then 
+else if benutzer.gebursdatum > current_data() then 
 		SIGNAL SQLSTATE "45000" SET MESSAGE_TEXT = "Der angegebene Wert kann nicht in der Zukunft liegen", 
 		MYSQL_ERRNO = "404";
 else 

@@ -31,7 +31,27 @@ Grant Delete on videospiele.* To 'Mitarbeiter';
 Grant Insert on videospiele.* To 'Mitarbeiter';
 Grant Update on videospiele.* To 'Mitarbeiter';
 Grant Alter on videospiele.* To 'Mitarbeiter';
-Grant Select on videospiele.* To 'Praktikant';
+Grant Select on achievements To 'Praktikant';
+Grant Select on achievements_has_benutzer To 'Praktikant';
+Grant Select on bewertung To 'Praktikant';
+Grant Select on entwickler To 'Praktikant';
+Grant Select on  entwickler_has_genre To 'Praktikant';
+Grant Select on entwickler_has_spiele To 'Praktikant';
+Grant Select on genre To 'Praktikant';
+Grant Select on genre_has_spiele To 'Praktikant';
+Grant Select on launcher To 'Praktikant';
+Grant Select on launcher_has_spiele To 'Praktikant';
+Grant Select on plattformen To 'Praktikant';
+Grant Select on plattformen_has_spiele To 'Praktikant';
+Grant Select on publisher To 'Praktikant';
+Grant Select on publisher_has_spiele To 'Praktikant';
+Grant Select on spiele_has_benutzer To 'Praktikant';
+Grant Select on spielstände To 'Praktikant';
+Grant Select on tags To 'Praktikant';
+Grant Select on tags_has_spiele To 'Praktikant';
+Grant Select on verkäufer To 'Praktikant';
+Grant Select on verkäufer_has_spiele To 'Praktikant';
+
 
 Grant 'Admin' TO  'Professor.I.Gidd'@'localhost';
 Grant 'Mitarbeiter' TO  'L.Graef'@'localhost';
