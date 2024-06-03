@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             dgv_showTable = new DataGridView();
             btn_zurück = new Button();
-            btn_saveRow = new Button();
             btn_delRow = new Button();
             btn_addRow = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_showTable).BeginInit();
@@ -59,19 +58,9 @@
             btn_zurück.UseVisualStyleBackColor = true;
             btn_zurück.Click += btn_zurück_Click;
             // 
-            // btn_saveRow
-            // 
-            btn_saveRow.Location = new Point(235, 287);
-            btn_saveRow.Name = "btn_saveRow";
-            btn_saveRow.Size = new Size(218, 34);
-            btn_saveRow.TabIndex = 2;
-            btn_saveRow.Text = "Zeile Speichern";
-            btn_saveRow.UseVisualStyleBackColor = true;
-            btn_saveRow.Click += btn_addRow_Click;
-            // 
             // btn_delRow
             // 
-            btn_delRow.Location = new Point(459, 287);
+            btn_delRow.Location = new Point(236, 280);
             btn_delRow.Name = "btn_delRow";
             btn_delRow.Size = new Size(218, 34);
             btn_delRow.TabIndex = 3;
@@ -81,12 +70,13 @@
             // 
             // btn_addRow
             // 
-            btn_addRow.Location = new Point(12, 287);
+            btn_addRow.Location = new Point(12, 280);
             btn_addRow.Name = "btn_addRow";
             btn_addRow.Size = new Size(218, 34);
             btn_addRow.TabIndex = 4;
             btn_addRow.Text = "Zeile hinzufügen";
             btn_addRow.UseVisualStyleBackColor = true;
+            btn_addRow.Click += btn_addRow_Click;
             // 
             // Form3
             // 
@@ -95,7 +85,6 @@
             ClientSize = new Size(1135, 333);
             Controls.Add(btn_addRow);
             Controls.Add(btn_delRow);
-            Controls.Add(btn_saveRow);
             Controls.Add(btn_zurück);
             Controls.Add(dgv_showTable);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -110,7 +99,6 @@
 
         private DataGridView dgv_showTable;
         private Button btn_zurück;
-        private Button btn_saveRow;
         private Button btn_delRow;
         private Button btn_addRow;
     }

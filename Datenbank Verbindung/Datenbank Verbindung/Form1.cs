@@ -49,7 +49,7 @@ namespace Datenbank_Verbindung
             }
         }
 
-        private async void btn_login_Click(object sender, EventArgs e)
+        private void btn_login_Click(object sender, EventArgs e)
         {
             startLogin();
         }

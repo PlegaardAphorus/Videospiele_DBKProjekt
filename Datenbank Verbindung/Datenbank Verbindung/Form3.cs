@@ -27,23 +27,22 @@ namespace Datenbank_Verbindung
 
             executeCommand.CommandText = $"SELECT * FROM {tableName}";
 
-            DataTable temp = new DataTable();
+            using DataTable dataTable = new DataTable();
             using MySqlDataAdapter adapter = new MySqlDataAdapter(executeCommand);
-            adapter.Fill(temp);
+            adapter.Fill(dataTable);
 
-            // Spalten im DataGridView hinzufügen basierend auf den Spaltennamen im DataTable
             dgv_showTable.Columns.Clear();
-            foreach (DataColumn col in temp.Columns)
+            foreach (DataColumn col in dataTable.Columns)
             {
                 dgv_showTable.Columns.Add(col.ColumnName, col.ColumnName);
             }
 
-            foreach (DataRow row in temp.Rows)
+            foreach (DataRow row in dataTable.Rows)
             {
                 int rowIndex = dgv_showTable.Rows.Add();
                 DataGridViewRow dgvRow = dgv_showTable.Rows[rowIndex];
 
-                for (int colIndex = 0; colIndex < temp.Columns.Count; colIndex++)
+                for (int colIndex = 0; colIndex < dataTable.Columns.Count; colIndex++)
                 {
                     if (row[colIndex].ToString().Contains(":"))
                     {
@@ -71,7 +70,6 @@ namespace Datenbank_Verbindung
         {
             try
             {
-                // Index der ID-Spalte finden
                 int idIndex = -1;
                 for (int i = 0; i < dgv_showTable.Columns.Count; i++)
                 {

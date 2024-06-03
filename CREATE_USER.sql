@@ -25,7 +25,7 @@ Grant Select on achievements To 'Praktikant';
 Grant Select on achievements_has_benutzer To 'Praktikant';
 Grant Select on bewertung To 'Praktikant';
 Grant Select on entwickler To 'Praktikant';
-Grant Select on  entwickler_has_genre To 'Praktikant';
+Grant Select on entwickler_has_genre To 'Praktikant';
 Grant Select on entwickler_has_spiele To 'Praktikant';
 Grant Select on genre To 'Praktikant';
 Grant Select on genre_has_spiele To 'Praktikant';
@@ -39,9 +39,9 @@ Grant Select on spiele_has_benutzer To 'Praktikant';
 Grant Select on spielstände To 'Praktikant';
 Grant Select on tags To 'Praktikant';
 Grant Select on tags_has_spiele To 'Praktikant';
-Grant Select on verkäufer To 'Praktikant';
 Grant Select on verkäufer_has_spiele To 'Praktikant';
-
+Grant Select on V_Benutzer  To 'Praktikant';
+Grant Select on V_Verkäufer To 'Praktikant';
 
 Grant 'Admin' TO  'Professor.I.Gidd'@'localhost';
 Grant 'Mitarbeiter' TO  'L.Graef'@'localhost';
