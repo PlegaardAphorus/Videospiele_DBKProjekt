@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\datenbank verbindung\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|solutionrelative:datenbank verbindung\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|c:\\users\\luke0\\desktop\\dbk\\videospiele_dbkprojekt\\datenbank verbindung\\datenbank verbindung\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|solutionrelative:datenbank verbindung\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|c:\\users\\luke0\\desktop\\dbk\\videospiele_dbkprojekt\\datenbank verbindung\\datenbank verbindung\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|solutionrelative:datenbank verbindung\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\datenbank verbindung\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|solutionrelative:datenbank verbindung\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4502F03-8183-499A-AA02-8622AC486B80}|Datenbank Verbindung\\Datenbank Verbindung.csproj|C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\datenbank verbindung\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form3.cs",
               "DocumentMoniker": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form3.cs",
               "RelativeDocumentMoniker": "Datenbank Verbindung\\Form3.cs",
@@ -55,18 +55,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form3.cs [Entwurf]",
               "DocumentMoniker": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form3.cs",
               "RelativeDocumentMoniker": "Datenbank Verbindung\\Form3.cs",
               "ToolTip": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form3.cs [Entwurf]",
               "RelativeToolTip": "Datenbank Verbindung\\Form3.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T13:40:02.69Z"
+              "WhenOpened": "2024-06-02T13:40:02.69Z",
+              "EditorCaption": " [Entwurf]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form2.cs",
               "RelativeDocumentMoniker": "Datenbank Verbindung\\Form2.cs",
@@ -80,23 +81,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Form2.cs [Entwurf]",
+              "Title": "Form2.cs [Design]",
               "DocumentMoniker": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form2.cs",
               "RelativeDocumentMoniker": "Datenbank Verbindung\\Form2.cs",
-              "ToolTip": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form2.cs [Entwurf]",
-              "RelativeToolTip": "Datenbank Verbindung\\Form2.cs [Entwurf]",
+              "ToolTip": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form2.cs [Design]",
+              "RelativeToolTip": "Datenbank Verbindung\\Form2.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T23:25:00.852Z"
+              "WhenOpened": "2024-05-25T23:25:00.852Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form1.cs",
               "RelativeDocumentMoniker": "Datenbank Verbindung\\Form1.cs",
               "ToolTip": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form1.cs",
               "RelativeToolTip": "Datenbank Verbindung\\Form1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAgwAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T10:25:02.991Z",
               "EditorCaption": ""
@@ -104,13 +106,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Form1.cs [Entwurf]",
+              "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form1.cs",
               "RelativeDocumentMoniker": "Datenbank Verbindung\\Form1.cs",
-              "ToolTip": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form1.cs [Entwurf]",
-              "RelativeToolTip": "Datenbank Verbindung\\Form1.cs [Entwurf]",
+              "ToolTip": "C:\\Users\\luke0\\Desktop\\DBK\\Videospiele_DBKProjekt\\Datenbank Verbindung\\Datenbank Verbindung\\Form1.cs [Design]",
+              "RelativeToolTip": "Datenbank Verbindung\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T10:17:33.02Z"
+              "WhenOpened": "2024-05-24T10:17:33.02Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
